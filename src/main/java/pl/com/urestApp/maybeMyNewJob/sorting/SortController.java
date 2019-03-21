@@ -15,14 +15,15 @@ import java.util.Arrays;
 public class SortController {
 
     @RequestMapping(value = "/numbers/sort-command", method = RequestMethod.POST)
-    public ResponseEntity<> getNumbersAndTypeSort(@RequestBody NumbersSort numbersSort) {
+    public ResponseEntity<SortedNumbers> getNumbersAndTypeSort(@RequestBody NumbersSort numbersSort) {
 
         ArrayList emptyList = new ArrayList(Arrays.asList());
-        ArrayList numbers = numbersSort.timeToSort(numbersSort.getNumbersList(), numbersSort.getSortType());
-        if (numbers == emptyList) {
+        ArrayList numbers = numbersSort.timeToSort(numbersSort.getNumbers(), numbersSort.getOrder());
+        SortedNumbers answer = new SortedNumbers(numbers.toString());
+        if (numbers.size()==0) {
             return new ResponseEntity("BAD_REQUEST", HttpStatus.BAD_REQUEST);
         } else {
-            return new ResponseEntity("",HttpStatus.OK);
+            return new ResponseEntity(answer,HttpStatus.OK);
         }
 
     }
