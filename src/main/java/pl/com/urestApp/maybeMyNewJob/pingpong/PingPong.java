@@ -4,5 +4,5 @@ import lombok.Getter;
 
 @Getter
 public class PingPong {
-    private static final String answer = "<h1 style=\"text-align: center; color: green;\">pong</h1>";
+    private final String answer = "<h1 style=\"text-align: center; color: green;\">pong</h1>";
 }
