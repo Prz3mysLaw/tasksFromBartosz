@@ -1,9 +1,10 @@
 package pl.com.urestApp.maybeMyNewJob.maybeKantor;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@NoArgsConstructor
+@Setter
 @AllArgsConstructor
 public class InputCurrencyCode {
     String currency;
